@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Word Count</title>
+</head>
+<body>
+    <h1>Word Count</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="document">Загрузить файл:</label>
+        <input type="file" id="document" name="document" required><br><br>
+        <label for="word">Слово:</label>
+        <input type="text" id="word" name="word"><br><br>
+        <input type="submit" value="Посчитать">
+    </form>
+    {% if count %}
+    <p>Слово '{{ word }}' встречается {{ count }} раз(а)</p>
+    {% endif %}
+</body>
+</html>
